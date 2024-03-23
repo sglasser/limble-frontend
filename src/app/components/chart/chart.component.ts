@@ -7,7 +7,7 @@ import { IChartData } from '../../interfaces/chart-data.interface';
   standalone: true,
   imports: [],
   templateUrl: './chart.component.html',
-  styleUrl: './chart.component.css'
+  styleUrl: './chart.component.css',
 })
 export class ChartComponent {
   @Input()
@@ -19,21 +19,23 @@ export class ChartComponent {
 
   chart: any;
 
-  createChart(displayData: IChartData[]){
-
-    this.chart = new Chart("pie-chart", {
+  createChart(displayData: IChartData[]): void {
+    this.chart = new Chart('pie-chart', {
       type: 'pie',
-      data: {// values on X-Axis
+      data: {
+        // values on X-Axis
         labels: displayData?.map((d: any) => d.name),
-        datasets: [{
-          label: 'Total Cost',
-          data: displayData?.map((d: any) => d.value),
-          hoverOffset: 4
-        }],
+        datasets: [
+          {
+            label: 'Total Cost',
+            data: displayData?.map((d: any) => d.value),
+            hoverOffset: 4,
+          },
+        ],
       },
       options: {
-        aspectRatio:2.5
-      }
+        aspectRatio: 2.5,
+      },
     });
   }
 }

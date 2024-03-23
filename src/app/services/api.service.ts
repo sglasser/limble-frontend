@@ -6,12 +6,12 @@ import { IWorkerCost } from '../interfaces/worker-cost.interface';
 import { ILocationCost } from '../interfaces/location-cost.interface';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ApiService {
   API_URL = environment.BASE_API_URL;
 
-  constructor(private readonly http: HttpClient) { }
+  constructor(private readonly http: HttpClient) {}
 
   getWorkerCost(): Observable<IWorkerCost[]> {
     return this.http.get<IWorkerCost[]>(`${this.API_URL}/workers/cost`);
