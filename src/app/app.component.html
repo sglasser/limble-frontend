@@ -343,8 +343,10 @@
       <p>One Awesome CMMS!</p>
       <div>
         <h3>Labor Expense All Locations By Worker</h3>
-        @if(workerCostData) {
+        @if(workerCostData && workerCostData.length) {
           <app-chart-component [data]="workerCostData"></app-chart-component>
+        } @else if(workerCostData) {
+          <p>No data available</p>
         } @else {
           <p>Loading...</p>
         }
